@@ -1,0 +1,19 @@
+Bootstrap: docker
+From: tensorflow/tensorflow:2.10.0-gpu
+
+%post
+    # Set the working directory inside the container to /user/source
+    mkdir -p /user/source
+    mkdir -p /user/source/input
+    mkdir -p /user/source/output
+
+%files
+    requirements.txt /user/source/requirements.txt
+    main.py /user/source/main.py
+    shap-e-img2img/* /user/source/model/shap-e-img2img/
+
+%post
+    pip install -r /user/source/requirements.txt
+
+%runscript
+    exec python /user/source/main.py "$@"
