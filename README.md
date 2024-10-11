@@ -1,7 +1,7 @@
 
 # ShapE-TextTo3D-HPC
 
-This project is a 3D image-to-3D model pipeline that is containerized using Singularity and is ready to run on an HPC system. It is designed for users who need to transform 2D images into 3D models using the ShapE framework while leveraging the power of high-performance computing (HPC). The project has been successfully tested on the HPC system at [FAU](https://hpc.fau.de/).
+This project is a 3D image-to-3D model pipeline that is containerized using Singularity and is ready to run on an HPC system. It is designed for users who need to transform 2D images into 3D models using the ShapE framework while leveraging the power of high-performance computing (HPC). The project has been successfully tested on the HPC system at [Erlangen National High Performance Computing Center ](https://hpc.fau.de/).
 
 ## Features
 - Converts 2D images to 3D models using ShapE.
