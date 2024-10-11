@@ -53,11 +53,11 @@ To set up the project, follow these steps:
    Replace `<image_name>` with the name of your image (without the `.png` extension). The output 3D model will be saved in the `output` directory.
 
 ### Example
-To run the pipeline with an image named `example.png`, execute:
+To run the pipeline with an image named `apple`, execute:
 ```bash
 sbatch job.sh apple
 ```
-The resulting 3D model will be saved in the `output/example/` directory.
+The resulting 3D model will be saved in the `output/apple/` directory.
 
 ## Files Overview
 - `main.py`: Contains the main script for converting images to 3D models.
