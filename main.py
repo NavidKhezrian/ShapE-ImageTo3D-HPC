@@ -10,7 +10,7 @@ from diffusers import ShapEImg2ImgPipeline
 
 
 
-def shap_e(img_path, guidance_scale, num_inference_steps, frame_size):
+def shap_e(img_path, guidance_scale, num_inference_steps, frame_size,output_path):
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     
@@ -30,7 +30,7 @@ def shap_e(img_path, guidance_scale, num_inference_steps, frame_size):
             generator=torch.Generator(device=device)
         ).images
 
-    export_to_obj(images[0], "/user/source/output/model.obj")    
+    export_to_obj(images[0], output_path + "model.obj")   
 
 def main():
     # Create an argument parser with descriptions
@@ -39,8 +39,7 @@ def main():
     # Define command-line arguments
     parser.add_argument(
         "--img_path", type=str,
-        nargs="?",
-        default="/user/source/input/apple.png"
+        nargs="?"
     )
     parser.add_argument(
         "--guidance_scale",
@@ -60,6 +59,11 @@ def main():
         default=256,
         help=""
     )
+    parser.add_argument(
+        "--output_path",
+        type=str,
+        help=""
+    )
     # Parse the command-line arguments
     args = parser.parse_args()
     
@@ -68,7 +72,8 @@ def main():
         args.img_path,
         args.guidance_scale,
         args.num_inference_steps,
-        args.frame_size
+        args.frame_size,
+        args.output_path
     )
 
 # Execute the main function if the script is run as the main module
